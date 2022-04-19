@@ -1,0 +1,28 @@
+ALGORITHM nb-de-caractère
+VAR
+    var x:STRING[20];
+    var nb-vowel:INTEGER:=0;
+    var nb-espace:INTEGER:=0;
+    var nb-mots:INTEGER:=1;
+    var nb-char:INTEGER:=0;
+BEGIN
+    Read(x);
+    IF (x.length=0) THEN
+    nb:=0;
+    ELSE
+        FOR i FROM 0 TO x.length STEP 1  DO
+        IF (x[i]=" ") THEN
+            nb-espace+=1;
+            nb-mots+=1;
+        END_IF
+        nb-char+=1;
+        IF (x[i]:="a" OR x[i]:="e" OR x[i]:="i" OR x[i]:="o" OR x[i]:="u" OR x[i]:="y") THEN
+            nb-vowel+=1;
+        END_IF
+        END_FOR
+    END_IF
+    write ("Nombre de voyelles = ",nb-vowel);
+    write ("Nombre de mots = ",nb-mots);
+    write ("Nombre de caractères = ",nb-char);
+    write ("Nombre d'espace = ",nb-espace);
+END
